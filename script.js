@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
             liff.getProfile().then(profile => {
               const userId = profile.userId;
               const displayName = profile.displayName;
-              console.log(`User ID: ${userId}, Display Name: ${displayName}`);
             });
           }
       })
