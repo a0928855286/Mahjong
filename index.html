@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>麻將聽牌計算機</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .tile {
+      width: 30px;
+      height: 60px;
+    }
+    #input-display {
+      height: 100px; /* 固定高度 */
+    }
+    .tile-buttons button {
+      border: none; /* 移除外框 */
+    }
+    @media (max-width: 576px) {
+      .tile {
+        width: 20px;
+        height: 40px;
+      }
+      .tile-buttons button {
+        width: 24px;
+        height: 40px;
+        padding: 0;
+      }
+      .tile-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+      }
+      #input-tiles {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+      }
+      #input-display {
+        height: 50px; /* 在手机屏幕尺寸下调整高度 */
+      }
+      #input-display .tile {
+        width: 20px;
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-center my-4">麻將聽牌計算機</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div id="result-display" class="p-3 bg-warning">
+          <input type="text" id="reminder" class="form-control-plaintext text-center" readonly>
+          <div id="output-tiles-container">
+            <div id="output-tiles" class="d-flex flex-column align-items-center"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div id="input-display" class="p-2 bg-success">
+          <div id="input-tiles" class="d-flex justify-content-center"></div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div id="input-area" class="p-3 bg-info d-flex flex-column align-items-center">
+          <div class="tile-buttons" data-tiles="11-19"></div>
+          <div class="tile-buttons" data-tiles="21-29"></div>
+          <div class="tile-buttons" data-tiles="31-39"></div>
+          <div class="tile-buttons" data-tiles="41-47"></div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div id="button-area" class="p-3 bg-info d-flex justify-content-around">
+          <button id="calculate-btn" class="btn btn-primary">計算</button>
+          <button id="clear-btn" class="btn btn-secondary">清空</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
