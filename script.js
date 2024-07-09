@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((err) => {
         console.error('LIFF 初始化失败', err);
       });
-  });
   
   function addTile(tile) {
     if (inputTiles.length >= 17 || inputTiles.filter(t => t === tile).length >= 4) return;
