@@ -7,21 +7,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const baseURL = 'https://a0928855286.github.io/Mahjong/';
 
   liff.init({ liffId: '2005802130-4Axamgd0' })
-        .then(() => {
-          if (!liff.isLoggedIn()) {
-            liff.login();
-          } else {
+      .then(() => {
+        if (!liff.isLoggedIn()) {
+          liff.login();
+        } else {
             // 用户已登录，可以获取用户信息或执行其他操作
             liff.getProfile().then(profile => {
               const userId = profile.userId;
               const displayName = profile.displayName;
-              console.log(User ID: ${userId}, Display Name: ${displayName});
+              console.log(`User ID: ${userId}, Display Name: ${displayName}`);
             });
           }
-        })
-        .catch((err) => {
-          console.error('LIFF 初始化失败', err);
-        });
+      })
+      .catch((err) => {
+        console.error('LIFF 初始化失败', err);
+      });
 
   
   function addTile(tile) {
