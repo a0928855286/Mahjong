@@ -5,6 +5,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const outputTiles = document.getElementById('output-tiles');
   const inputTilesDisplay = document.getElementById('input-tiles');
 
+  liff.init({ liffId: '2005802130-4Axamgd0' })  // 替换 'YOUR_LIFF_ID' 为您的 LIFF ID
+      .then(() => {
+        if (!liff.isLoggedIn()) {
+          liff.login();
+        } else {
+          // 用户已登录，可以获取用户信息或执行其他操作
+          liff.getProfile().then(profile => {
+            const userId = profile.userId;
+            const displayName = profile.displayName;
+            console.log(`User ID: ${userId}, Display Name: ${displayName}`);
+          });
+        }
+      })
+      .catch((err) => {
+        console.error('LIFF 初始化失败', err);
+      });
+  });
+  
   function addTile(tile) {
     if (inputTiles.length >= 17 || inputTiles.filter(t => t === tile).length >= 4) return;
     inputTiles.push(tile);
