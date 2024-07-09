@@ -7,32 +7,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const baseURL = 'https://a0928855286.github.io/Mahjong/';
 
   liff.init({ liffId: '2005802130-4Axamgd0' })
-    .then(() => {
-      if (!liff.isLoggedIn()) {
-        liff.login();
-      } else {
-        // 检查是否已经刷新过页面以避免无限刷新循环
-        const alreadyRefreshed = sessionStorage.getItem('liffPageRefreshed');
-        if (!alreadyRefreshed) {
-          // 设置标志位，表示已经刷新过页面
-          sessionStorage.setItem('liffPageRefreshed', 'true');
-          // 强制刷新页面，确保加载最新内容
-          window.location.reload(true);
-        } else {
-          // 已经刷新过页面，执行正常的操作
-          liff.getProfile().then(profile => {
-            const userId = profile.userId;
-            const displayName = profile.displayName;
-            console.log(`User ID: ${userId}, Display Name: ${displayName}`);
-            // 清除标志位以便下一次重新加载时生效
-            sessionStorage.removeItem('liffPageRefreshed');
-          });
-        }
-      }
-    })
-    .catch((err) => {
-      console.error('LIFF 初始化失败', err);
-    });
+        .then(() => {
+          if (!liff.isLoggedIn()) {
+            liff.login();
+          } else {
+            // 用户已登录，可以获取用户信息或执行其他操作
+            liff.getProfile().then(profile => {
+              const userId = profile.userId;
+              const displayName = profile.displayName;
+              console.log(User ID: ${userId}, Display Name: ${displayName});
+            });
+          }
+        })
+        .catch((err) => {
+          console.error('LIFF 初始化失败', err);
+        });
 
   
   function addTile(tile) {
