@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const reminder = document.getElementById('reminder');
   const outputTiles = document.getElementById('output-tiles');
   const inputTilesDisplay = document.getElementById('input-tiles');
+  const baseURL = 'https://a0928855286.github.io/Mahjong/';
 
   liff.init({ liffId: '2005802130-4Axamgd0' })  // 替换 'YOUR_LIFF_ID' 为您的 LIFF ID
       .then(() => {
@@ -82,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       outputTiles.classList.add('align-items-start');
       outputTiles.classList.remove('align-items-center');
       const img = document.createElement('img');
-      img.src = `assets/images/img${dpStart}.png`;
+      img.src = `${baseURL}assets/images/img${dpStart}.png`;
       img.className = 'tile';
       img.style.marginRight = '10px'; // 添加间隔
       div.appendChild(img);
@@ -93,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     tiles.forEach(tile => {
       const img = document.createElement('img');
-      img.src = `assets/images/img${tile}.png`;
+      img.src = `${baseURL}assets/images/img${tile}.png`;
       img.className = 'tile';
       div.appendChild(img);
     });
@@ -105,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
     inputTilesDisplay.innerHTML = "";
     inputTiles.forEach(tile => {
       const img = document.createElement('img');
-      img.src = `assets/images/img${tile}.png`;
+      img.src = `${baseURL}assets/images/img${tile}.png`;
       img.className = 'tile';
       img.addEventListener('click', () => removeTile(tile));
       inputTilesDisplay.appendChild(img);
@@ -205,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const button = document.createElement('button');
       button.className = 'btn btn-outline-primary m-1';
       const img = document.createElement('img');
-      img.src = `assets/images/img${i}.png`;
+      img.src = `${baseURL}assets/images/img${i}.png`;
       img.className = 'tile';
       button.appendChild(img);
       button.addEventListener('click', () => addTile(i));
