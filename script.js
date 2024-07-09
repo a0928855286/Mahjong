@@ -79,6 +79,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const div = document.createElement('div');
     
     if (withSpacing) {
+      reminder.classList.add('text-left');
+  	  reminder.classList.remove('text-center');
+  	  reminder.value = " 打     聽";
       outputTiles.classList.add('align-items-start');
       outputTiles.classList.remove('align-items-center');
       const img = document.createElement('img');
@@ -87,6 +90,8 @@ document.addEventListener("DOMContentLoaded", function () {
       img.style.marginRight = '10px'; // 添加间隔
       div.appendChild(img);
     } else {
+      reminder.classList.add('text-center');
+	    reminder.classList.remove('text-left');
       outputTiles.classList.add('align-items-center');
       outputTiles.classList.remove('align-items-start');
     }
